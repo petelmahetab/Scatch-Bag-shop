@@ -1,0 +1,51 @@
+We have 3 Models
+
+// User Model
+const User = {
+  fullname: "",        // Full name of the user (string)
+  email: "",           // Email address (string)
+  password: "",        // Password (string)
+  cart: [],             // List of items in the user's cart (array)
+  isAdmin: false,       // Boolean to check if the user has admin privileges
+  orders: [],           // List of user orders (array)
+  contact: "",         // Contact number (string)
+  picture: ""          // Profile picture URL (string)
+};
+
+// Product Model
+const Product = {
+  image: "",           // URL of the product image (string)
+  name: "",            // Name of the product (string)
+  price: 0,             // Price of the product (number)
+  discount: 0,          // Discount on the product in percentage (number)
+  bgcolor: "",         // Background color for the product card (string)
+  panelColor: "",      // Color of the product's panel (string)
+  textcolor: ""        // Text color for the product details (string)
+};
+
+
+//Owner Models
+const User = {
+  fullname: "",        // Full name of the user (string)
+  email: "",           // Email address (string)
+  password: "",        // Password (string)
+  products:           // Produts (array)
+  picture: ""          // Profile picture URL (string) for GST Number.
+};
+
+
+//cabaab case in CONFIG,MiddleWare,Utils
+//camel case for ROUTES,view
+
+
+
+
+/*Now We are going to Create  Routes
+1. /   ->  signUp / logIn
+2./shop -> shop
+3./users/cart  -> cart
+4./admin  -> admin panel
+5./owner/products  ->show all products 
+6./owner/admin    ->show admin panel to create products
+
+*/
