@@ -2,6 +2,7 @@ const userModel = require('../models/user-models');
 const bcrypt = require('bcrypt')
 const jwt=require('jsonwebtoken')
 const {generateToken}=require('../utils/generateToken');
+// const flash=require('connect-flash')
 const { use } = require('../routes/ownersRouter');
 
 module.exports.registerUser= async function (req, res) {
@@ -48,29 +49,30 @@ module.exports.registerUser= async function (req, res) {
 }
 
 module.exports.loginUser = async function (req, res) {
-    // Get email and password from the request body
     let { email, password } = req.body;
 
-    // Find user by email in the database
     let userFound = await userModel.findOne({ email: email });
 
-    // If user not found, send error
+    
     if (!userFound) {
-        return res.status(401).send('Email or Password Incorrect');
-    }
-
-    // Compare the entered password with the hashed password in the database //Agar Emaila nd password same hua toh is me jaYEgA...
+        req.flash('error', 'Email or Password Incorrect');
+        return res.redirect('/');
+    } 
+    
     bcrypt.compare(password, userFound.password, function (err, matched) {
-        //we need to set up the Generate token to user agar user email and password
-        if(matched){
-            let token=generateToken(userFound)//token generate karo mile wale user se...
-            res.cookie("token",token)
-            res.send('Now You can login')
-        }else{
-            return res.status(401).send('Email or Password Incorrect');
+        if (matched) {
+            let token = generateToken(userFound);
+            res.cookie("token", token);
+            res.redirect('/shop');
+        } else {
+            req.flash('error', 'Email or Password Incorrect');
+            return res.redirect('/');
         }
-        
     });
 };
 
 // 
+module.exports.logOut = function (req, res) {
+    res.cookie('token', '', { maxAge: 0 }); // Clear the token cookie
+    res.redirect('/'); // Redirect to the login page
+};

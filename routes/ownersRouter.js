@@ -3,9 +3,12 @@ const router=express.Router();
 const ownerModel=require('../models/owner-models');
 
 
-router.get('/',(req,res)=>{
-    res.send('Welcome Owners')
+router.get('/admin',(req,res)=>{
+  const success= req.flash("success");
+ 
+    res.render('createproducts',{success})
 })
+
 
 console.log(process.env.NODE_ENV === 'development')
 console.log("Kuch ni hua aage badh tu BILLIONAIRE abhi se....")

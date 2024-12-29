@@ -1,17 +1,17 @@
-const mongoose=require('mongoose');
+const mongoose = require('mongoose');
 
+const productSchema = new mongoose.Schema({
+    name: String,
+    price: Number,
+    image: Buffer,
+    discount:{
+type:Number,
+default:0
+    },
+    bgcolor: String,
+    panelcolor: String,
+    textcolor: String
+    // add other fields as needed
+});
 
-const productSchema=mongoose.Schema({
-    image:String,           // URL of the product image (string)
-  name: String,            // Name of the product (string)
-  price: Number,             // Price of the product (number)
-  discount:{
-  type:Number,
-  default:0
-  } ,          // Discount on the product in percentage (number)
-  bgcolor: String,         // Background color for the product card (string)
-  panelColor: String,      // Color of the product's panel (string)
-  textcolor: String
-})
-
-module.exports=mongoose.model('products',productSchema)
+module.exports = mongoose.model('Product', productSchema);
