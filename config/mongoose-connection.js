@@ -7,7 +7,7 @@ const getUrl=cofig.MONGODB_URL;
 mongoose.connect(`${getUrl}/scatch`)
 .then(function(){dbgr("Connected")})
 .catch(function(err){
-    cons=ole.log(err);
+    console.log(err);
 });
 
 module.exports=mongoose.connection //For controll entire DATABASE.

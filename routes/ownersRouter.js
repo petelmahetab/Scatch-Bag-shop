@@ -1,11 +1,13 @@
 const express=require('express')
 const router=express.Router();
 const ownerModel=require('../models/owner-models');
+const upload=require('../config/multer-config')
+const productModel=require('../models/product-models')
+ 
 
 
 router.get('/admin',(req,res)=>{
   const success= req.flash("success");
- 
     res.render('createproducts',{success})
 })
 

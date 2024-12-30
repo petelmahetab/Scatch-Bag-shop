@@ -49,3 +49,66 @@ const User = {
 6./owner/admin    ->show admin panel to create products
 
 */
+
+
+
+/*Color Combination 
+1.brown 
+  1bag.png
+  textcolor 774F3D
+  panel DEBEAE
+  bgcolor F4DDD2
+  name -> clinge bag, 1200
+
+2.lightblue
+   2bag.png
+   textcolor 48606E
+   panel D3E4EE
+   bgcolor f3f8fb
+   name -> backpack ,1100
+
+3.khaakibrown
+3bag.png
+ textcolor  5f4a30
+ panel c5b095
+ bgcolor deD0bf
+name -> multipurpose,100
+
+4.pink
+ 
+  textcolor  816264
+  panelColor  E3c4c6
+  bgcolor f4e0e1
+  name -> pink Attack,1400 , 25%
+
+  5.pink
+  5bag.png
+  textcolor  816264
+  panelColor  E3c4c6
+  bgcolor f4e0e1
+  name -> pink Attack,1400 , 25%
+
+
+  6.New Bag 
+  bgcolor #D6D9E0
+  panelColor #B4B7C2
+  textcolor #6F7076
+
+  7.
+  #56362B: 
+  bgcolor: #8C6A5F,
+  panelColor: #A48C82,
+  textcolor: #4F3D36
+
+  8.
+  #2B2A28:
+  bgcolor: #575653,
+  panelColor: #74726F,
+  textcolor: #3C3B3A
+
+  9.
+  #E6AE3F & #3A3644: 
+  bgcolor: #F4C76A,
+   panelColor: #5A545B,
+    textcolor: #3F3A3E
+*/

@@ -18,9 +18,9 @@ router.post('/create',upload.single("image"),async function (req,res){
     });
      
     req.flash('success','Product created Successfully.')
-    res.redirect('/admin') 
+    res.redirect('/owners/admin') 
   } catch(err){
-    res.send(err.message)
+    res.status(500).end(err.message)
   }
     //After that we are able to save to all record into database right .do it like this. 
 
