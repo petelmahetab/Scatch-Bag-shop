@@ -5,7 +5,7 @@ const productModel = require('../models/product-models')
 
 router.get('/', function (req, res) {
   const error = req.flash('error')  // Or some logic to populate the error array
-  res.render('index', { error });
+  res.render('index', { error ,loggedIn:false});
 });
 
 router.get('/shop', isloggedin, async function (req, res) {
