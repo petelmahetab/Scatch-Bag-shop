@@ -6,10 +6,13 @@ const userSchema=mongoose.Schema({
     fullname: String,        // Full name of the user (string)
   email: String,           // Email address (string)
   password: String,        // Password (string)
-  cart: {
-    type:Array,
-    default:[]
-  },             // List of items in the user's cart (array)   
+  cart: [
+    {
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'Product',
+    // default:[]
+  },
+],             // List of items in the user's cart (array)   
   orders: {
     type:Array,
     default:[]

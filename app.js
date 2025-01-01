@@ -26,6 +26,7 @@ app.use(
 app.use(flash()); //For creating some Flash message and redirecting to next one... 
 app.use((req, res, next) => {
     res.locals.error_messages = req.flash('error');
+    res.locals.success=req.flash('success');
     next();
 });
 app.use(express.static(path.join(__dirname, 'public')));

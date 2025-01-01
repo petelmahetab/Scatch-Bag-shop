@@ -2,7 +2,7 @@ const userModel = require('../models/user-models');
 const bcrypt = require('bcrypt')
 const jwt=require('jsonwebtoken')
 const {generateToken}=require('../utils/generateToken');
-// const flash=require('connect-flash')
+const flash=require('connect-flash')
 const { use } = require('../routes/ownersRouter');
 
 module.exports.registerUser= async function (req, res) {
@@ -35,7 +35,8 @@ module.exports.registerUser= async function (req, res) {
   //same as Filed name right 
                     let token=generateToken(user)
                     res.cookie('token',token)  //iski wajah se jis ne register karne ki koshish kari hai oske Browser pr set ho jayegi.
-                    res.send("User Created Successfully")
+                    req.flash('success', 'User Created Successfully.');
+                    return res.redirect('/');
                 }
             })
         })
@@ -76,3 +77,4 @@ module.exports.logOut = function (req, res) {
     res.cookie('token', '', { maxAge: 0 }); // Clear the token cookie
     res.redirect('/'); // Redirect to the login page
 };
+

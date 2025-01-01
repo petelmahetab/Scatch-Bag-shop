@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const {registerUser,loginUser,logOut}=require('../controllers/authController')
+const {registerUser,loginUser,logOut,Cart}=require('../controllers/authController')
 const Product = require('../models/product-models');
 const productModels = require('../models/product-models');
 
@@ -25,6 +25,8 @@ router.get('/shop', async (req, res) => {
 
 
 router.get('/logout',logOut);
+
+
 
 
 module.exports = router
