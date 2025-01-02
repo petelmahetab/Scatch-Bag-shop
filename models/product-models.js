@@ -8,6 +8,7 @@ const productSchema = new mongoose.Schema({
 type:Number,
 default:0
     },
+ 
     bgcolor: String,
     panelcolor: String,
     textcolor: String
