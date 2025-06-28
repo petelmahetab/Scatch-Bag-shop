@@ -1,8 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            background: url('https://media.istockphoto.com/id/1483357835/photo/businessman-using-a-laptop-with-online-shopping-concept-marketplace-website-with-virtual.jpg?s=612x612&w=0&k=20&c=dnjB7Psonoidcb9lhRykBCmvzFDxCyyzdGusSEEBz1w=') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .welcome-title {
+            font-size: 4rem;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            perspective: 1000px;
+            /* Perspective for 3D effect */
+        }
+
+        .welcome-title span {
+            color: #522406;
+            /* Different color for 'Scatch' */
+            font-style: italic;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(255, 99, 71, 0.8);
+        }
+
+        input[type="submit"] {
+            transform: scale(0.9);
+            transition: transform 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            transform: scale(1);
+        }
+    </style>
 </head>
+
 <body>
     <%- include('./partials/header') %>
 
@@ -20,45 +61,76 @@
             </span>
         </div>
     <% } %>
-    
-    
-            <div class="w-full h-screen flex px-20">
-                <div class="w-1/2 flex items-center justify-center h-screen">
-                    <div class="w-full px-32">
-                        <h3 class="text-4xl">welcome to <span class="text-blue-700 font-semibold">Scatch</span></h3>
-                        <h4 class="text-2xl mb-5">create your account</h4>
-                        <form autocomplete="off" action="/users/register" method="post">
-                            <input
-                                class="bg-zinc-100 block w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
-                                type="text" placeholder="Full Name" name="fullname">
-                            <input
-                                class="bg-zinc-100 block w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
-                                type="email" placeholder="Email" name="email">
-                            <input
-                                class="bg-zinc-100 block w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
-                                type="password" placeholder="Password" name="password">
-                            <input class="px-5 rounded-full py-3 mt-2 bg-blue-500 text-white hover:bg-blue-700" type="submit"
-                                value="Create My Account">
-                        </form>
-                    </div>
-                </div>
-                <div class="w-1/2 flex items-center justify-center h-screen">
-                    <div class="w-full px-32">
-                        <h4 class="text-2xl capitalize mb-5">login your account</h4>
-                        <form autocomplete="off" action="/users/login" method="post">
-                            <input
-                                class="block bg-zinc-100 w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
-                                type="email" placeholder="Email" name="email">
-                            <input
-                                class="block bg-zinc-100 w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
-                                type="password" placeholder="Password" name="password">
-                            <input class="px-5 block rounded-full py-3 mt-2 bg-blue-500 text-white hover:bg-blue-700" type="submit"
-                                value="Login">
-                        </form>
-                        <!-- <form action="></form> -->
-                    </div>
-                </div>
+
+    <div class="w-full h-screen flex px-20">
+        <div class="w-1/2 flex items-center justify-center h-screen">
+            <div class="w-full px-32 form-container">
+                <h3 class="text-4xl welcome-title">
+                    Welcome to <span class="text-black font-semibold">Scatch</span>
+                </h3>
+                <h4 class="text-2xl mb-5">Create your account</h4>
+                <form autocomplete="off" action="/users/register" method="post">
+                    <input class="bg-zinc-100 block w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200" type="text" placeholder="Full Name" name="fullname">
+                    <input class="bg-zinc-100 block w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200" type="email" placeholder="Email" name="email">
+                    <input class="bg-zinc-100 block w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200" type="password" placeholder="Password" name="password">
+                    <input class="px-5 rounded-full py-3 mt-2 bg-blue-500 text-white hover:bg-blue-700" type="submit" value="Create My Account">
+                </form>
             </div>
-            <%- include('./partials/footer') %>
+        </div>
+        <div class="w-1/2 flex items-center justify-center h-screen">
+            <div class="w-full px-32 form-container">
+                <h4 class="text-2xl capitalize mb-5">Login to your account</h4>
+                <form autocomplete="off" action="/users/login" method="post">
+                    <input class="block bg-zinc-100 w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200" type="email" placeholder="Email" name="email">
+                    <input class="block bg-zinc-100 w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200" type="password" placeholder="Password" name="password">
+                    <input class="px-5 block rounded-full py-3 mt-2 bg-blue-500 text-white hover:bg-blue-700" type="submit" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/footer') %>
+
+    <script>
+        // GSAP Animations
+
+        // Animate the heading
+        gsap.from(".welcome-title", {
+            duration: 1.5,
+            opacity: 0,
+            rotationX: -90,
+            transformOrigin: "center bottom",
+            ease: "power3.out",
+            y: -50
+        });
+
+        // Glow effect for "Scatch"
+        gsap.to(".welcome-title span", {
+            duration: 1.5,
+            textShadow: "2px 2px 20px rgba(255, 99, 71, 1)",
+            repeat: -1,
+            yoyo: true
+        });
+
+        // Animate the form containers
+        gsap.to(".form-container", {
+            duration: 1,
+            opacity: 1,
+            y: 0,
+            stagger: 0.3,
+            ease: "power3.out"
+        });
+
+        // Animate the buttons on hover
+        document.querySelectorAll("input[type='submit']").forEach(button => {
+            button.addEventListener("mouseenter", () => {
+                gsap.to(button, { scale: 1.1, duration: 0.2 });
+            });
+            button.addEventListener("mouseleave", () => {
+                gsap.to(button, { scale: 1, duration: 0.2 });
+            });
+        });
+    </script>
 </body>
+
 </html>
